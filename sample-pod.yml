@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-scheduler-pod
+  labels:
+    name: scheduler-example
+spec:
+  schedulerName: sample-scheduler
+  containers:
+  - name: container1
+    image: k8s.gcr.io/pause:2.0
