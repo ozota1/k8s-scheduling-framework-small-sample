@@ -9,7 +9,7 @@ import (
 	"k8s.io/component-base/logs"
 	"k8s.io/klog/v2"
 	"k8s.io/kubernetes/cmd/kube-scheduler/app"
-	framework "k8s.io/kubernetes/pkg/scheduler/framework/v1alpha1"
+	"k8s.io/kubernetes/pkg/scheduler/framework"
 )
 
 type SampleScheduler struct {
@@ -33,7 +33,7 @@ func (cs *SampleScheduler) PreFilterExtensions() framework.PreFilterExtensions {
 func (cs *SampleScheduler) PostBind(ctx context.Context, state *framework.CycleState, pod *v1.Pod, nodeName string) {
 	klog.Infof("pod %v is binded to %v", pod.Name, nodeName)
 }
-func New(_ runtime.Object, _ framework.FrameworkHandle) (framework.Plugin, error) {
+func New(_ runtime.Object, _ framework.Handle) (framework.Plugin, error) {
 	return &SampleScheduler{}, nil
 }
 func main() {
