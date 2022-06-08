@@ -1,4 +1,4 @@
-module sigs.k8s.io/scheduler-plugins
+module sample-scheduler
 
 go 1.17
 
